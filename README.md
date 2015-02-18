@@ -15,6 +15,16 @@ filerun.js does not have any external dependencies other than the HTML5 File API
 - Uploads folders on Chrome
 - Shows statistics about the total progress and for individual files, including the transfer rate/speed
 
+### Differences between filerun.js and other libraries
+
+- Large files are split in chunks which are uploaded in a proper order, so you don't have to keep multiple temporary files on the server until the file is completed.
+- You have full control over error handling and user feedback. You decide what means a successful upload, as other libraries consider a successfull request one which returns a HTTP status of 200.
+- Low browser memory usage and fast progress report. Supports transferring hundreds of files in one drop and the browser will not choke.
+- It uploads also empty files. (Yes, it's useful in many cases.)
+- You get to decide how large is a file that needs to be uploaded in chunks; smaller files being uploaded in one go.
+- You get to decide how many files should be uploaded simulatenously. My tests show that is not useful to upload more than a couple at a time.
+- The entire queue can be paused, or only certain files can be paused, skipped or removed from the queue. This allows FTP-client-like queue management.
+
 ## Demo
 
 This JavaScript library has been developed as part of FileRun, a PHP file manager. You can try the demo here: http://www.filerun.com/demo
