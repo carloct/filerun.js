@@ -16,7 +16,7 @@ filerun.js does not have any external dependencies other than the HTML5 File API
 
 ## Usage
 
-To be continued...
+See the "/example" folder. Edit "eexample.js" to set the URL of the server-side upload script. Use the included "example.php" to see how to handle the uploads on the server.
 
 ## Credits
 filerun.js has been developed based on https://github.com/flowjs/flow.js which in its turn was inspired by  https://github.com/23/resumable.js
