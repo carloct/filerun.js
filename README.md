@@ -1,7 +1,7 @@
 # filerun.js
-A JavaScript library providing reliable uploads via the HTML5 File API.
+"filerun.js" is a JavaScript library which provides reliable HTTP file uploads.
 
-The library is designed to introduce fault-tolerance into the upload of large files through HTTP. This is done by splitting each file into small chunks. Then, whenever the upload of a chunk fails, uploading is retried until the procedure completes. This allows uploads to automatically resume uploading after a network connection is lost either locally or to the server. Additionally, it allows for users to pause, resume and even recover uploads without losing state because only the currently uploading chunks will be aborted, not the entire upload.
+The library is designed to introduce fault-tolerance. This is done by splitting larger files into smaller chunks. Then, whenever the upload of a chunk fails, uploading is automatically retried until the procedure completes. This allows uploads to automatically resume uploading after a network connection is lost either locally or to the server. Additionally, it allows for users to pause, resume and even recover uploads without losing state because only the currently uploading chunks will be aborted, not the entire upload.
 
 filerun.js does not have any external dependencies other than the HTML5 File API.
 
@@ -14,6 +14,8 @@ filerun.js does not have any external dependencies other than the HTML5 File API
 - Low browser memory usage, to allow hundreds of files to be uploaded in the same session
 - Uploads folders on Chrome
 - Shows statistics about the total progress and for individual files, including the transfer rate/speed
+- Standalone, requires no other JavaScript component or library.
+- Only 14 KB (minified, before gzip compression)
 
 ### Differences between filerun.js and other libraries
 
@@ -23,7 +25,7 @@ filerun.js does not have any external dependencies other than the HTML5 File API
 - It uploads also empty files. (Yes, it's useful in many cases.)
 - You get to decide how large is a file that needs to be uploaded in chunks; smaller files being uploaded in one go.
 - You get to decide how many files should be uploaded simulatenously. My tests show that is not useful to upload more than a couple at a time.
-- The entire queue can be paused, or only certain files can be paused, skipped or removed from the queue. This allows FTP-client-like queue management.
+- The entire queue can be paused, or only certain files can be paused, skipped or removed from the queue. Additional files can be added to the queue, even while uploads are in progress. This allows FTP-client-like queue management.
 
 ## Demo
 

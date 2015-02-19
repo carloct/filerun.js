@@ -1,21 +1,37 @@
 <html>
 <head>
-    <title>Example</title>
-    <script src="../src/fr_chunk.js"></script>
-    <script src="../src/fr_file.js"></script>
-    <script src="../src/fr.js"></script>
+    <title>filerun.js demo</title>
+    <script src="../lib/filerun.min.js"></script>
 
     <script src="example.js"></script>
+
+    <style>
+        div {
+            border:1px solid silver;padding:5px;max-width:400px;min-height:50px;background-color:whitesmoke;font-size:11px;
+        }
+    </style>
 </head>
 <body onload="initUploader()" style="font-family:Arial;margin:10px;">
 
-    Drop files anywhere on this page.
+    <h2>filerun.js demo</h2>
 
+    <p>Drop files anywhere on this page.</p>
 
-    <div id="stats" style="border:1px solid silver;margin-top:10px;padding:5px;max-width:400px;min-height:50px;background-color:whitesmoke;font-size:11px;">
-    </div>
-    <div id="msg" style="border:1px solid silver;margin-top:10px;padding:5px;max-width:400px;min-height:50px;background-color:whitesmoke;font-size:11px;">
-    </div>
+    <p>You can also click <a href="javascript:fr.browseFiles()">here</a> to select files from your computer.</p>
+
+    <p>The selection can be limited to a <a href="javascript:fr.browseFiles(false, true)">single file</a>.</p>
+
+    <p>If you are using Google Chrome, you can also <a href="javascript:fr.browseFiles(true)">select an entire folder</a>.</p>
+
+    <p style="font-size:12px;color:gray;">This demo uploads the files in very small chunks of 12KB each, to allow you to see how it works without having to upload very large files.<br>The overall transfer speed drops dramatically with such a small chunk size.<br>With a default chunk size larger than 2MB, the transfer speed is closer to transferring the file in a single pass.</p>
+
+    Stats:
+    <div id="stats"></div>
+
+    <br>
+
+    Log:
+    <div id="msg"></div>
 
 </body>
 </html>

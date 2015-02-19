@@ -56,7 +56,7 @@ if (!$error) {
 		if (!$rs) {
 			$error = "Failed to upload file in one chunk";
 		} else {
-			$message = 'File uploaded in one chunk';
+			$message = 'File "'.$niceFilename.'" uploaded (in a single chunk)';
 		}
 	} else {
 		if ($isFirstChunk) {
@@ -77,7 +77,7 @@ if (!$error) {
 						if (!$rs) {
 							$error = "Failed to upload file, failed to rename";
 						} else {
-							$message = 'File '.$niceFilename.' successfully uploaded';
+							$message = 'File "'.$niceFilename.'" successfully uploaded';
 						}
 					} else {
 						$message = 'File chunk uploaded';

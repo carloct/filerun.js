@@ -1,10 +1,11 @@
+var fr;
 var initUploader = function() {
 	var message = document.getElementById('msg');
 	var stats = document.getElementById('stats');
 	/*
 	* Initialize FileRun
 	*/
-	var fr = new FileRun({
+	fr = new FileRun({
 		target: 'http://127.0.0.1/proiecte/filerun/filerun.js/example/example.php', //URL where the files are being sent
 		startOnSubmit: true, //automatically start transfer when files are being selected or dropped
 		chunkSize: 12500, //split larger files in chunks of maximum 1MB. Adjust this value depending on your server limits.
@@ -100,6 +101,16 @@ var initUploader = function() {
 	* */
 	FileRunUtils.attachDrop({
 		domNode: document.body,
-		onDrop: function (e) {fr.onDrop(e);}, scope: window
+		onDragOver: function(e) {
+			document.body.style.backgroundColor = 'yellow';
+		},
+		onDragLeave:  function(e) {
+			document.body.style.backgroundColor = 'white';
+		},
+		onDrop: function (e) {
+			document.body.style.backgroundColor = 'white';
+			message.innerHTML += '<br>Files have been dropped on this page.';
+			fr.onDrop(e);
+		}, scope: window
 	});
 };

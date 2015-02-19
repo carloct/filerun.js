@@ -590,4 +590,4 @@ var FileRunUtils = {
 		document.body.appendChild(input);
 		input.click();
 	}
-}
+};
